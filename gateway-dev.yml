@@ -7,7 +7,7 @@ logging:
 management.endpoint.gateway.enabled: true
 
 
-server.port: 8443
+server.port: 9090
 
 
 
