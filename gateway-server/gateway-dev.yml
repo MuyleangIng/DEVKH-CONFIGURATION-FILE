@@ -1,45 +1,48 @@
-spring:
+cloud:
+  config:
+    failFast: true
+    retry:
+      initialInterval: 3000
+      multiplier: 1.3
+      maxInterval: 10000
+      maxAttempts: 20
 
-  cloud:
-    config:
-      failFast: true
-      retry:
-        initialInterval: 3000
-        multiplier: 1.3
-        maxInterval: 10000
-        maxAttempts: 20
-   security:
-    oauth2:
-      client:
-        provider:
-          web:
-            issuer-uri: http://127.0.0.1:8080
-        registration:
-          web:
-            provider: web
-            client-id: kangchi
-            client-secret: 12345
-            authorization-grant-type:
-              - authorization_code
-            scope: openid, profile, email
-            redirect-uri: http://127.0.0.1:9090/login/oauth2/code/web
+security:
+  oauth2:
+    client:
+      provider:
+        web:
+          issuer-uri: http://127.0.0.1:8080
+      registration:
+        web:
+          provider: web
+          client-id: kangchi
+          client-secret: 12345
+          authorization-grant-type:
+            - authorization_code
+          scope: openid, profile, email
+          redirect-uri: http://127.0.0.1:9090/login/oauth2/code/web
+
 logging:
   level:
     root: INFO
     org.springframework.cloud.gateway.route.RouteDefinitionRouteLocator: INFO
     org.springframework.cloud.gateway: TRACE
     org.springframework.web.server.adapter.HttpWebHandlerAdapter: TRACE
-management.endpoint.gateway.enabled: true
 
+management:
+  endpoint:
+    gateway:
+      enabled: true
 
-server.port: 9090
-
-
+server:
+  port: 9090
 
 eureka:
   client:
     service-url:
       defaultZone: ${EUREKA_SERVER_ADDRESS}
+
 management:
   tracing:
     sampling:
@@ -52,32 +55,33 @@ management:
   #   tracing:
   #     endpoint: http://${CONFIG_SERVER_URL:localhost}:9411/api/v2/spans
 
-spring.cloud.gateway:
-  default-filters:
-    - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin Access-Control-Request-Headers
-    - SaveSession
+spring:
+  cloud:
+    gateway:
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin Access-Control-Request-Headers
+        - SaveSession
+      routes:
+        - id: identity-service
+          uri: http://127.0.0.1:8080
+          predicates:
+            - Path=/identity/**
 
-  routes:
-    - id: identity-service
-      uri: http://127.0.0.1:8080
-      predicates:
-        - Path=/identity/**
+        - id: student-service
+          uri: http://127.0.0.1:8082
+          predicates:
+            - Path=/students/**
+          filters:
+            - TokenRelay=
 
-    - id: student-service
-      uri: http://127.0.0.1:8082
-      predicates:
-        - Path=/students/**
-      filters:
-        - TokenRelay=
+        - id: nextjs
+          uri: http://127.0.0.1:3000/auth1
+          predicates:
+            - Path=/**
 
-    - id: nextjs
-      uri: http://127.0.0.1:3000/auth1
-      predicates:
-        - Path=/**
-
-    - id: eureka-server
-      uri: http://127.0.0.1:8761
-      predicates:
-        - Path=/eureka/api/{segment}
-      filters:
-        - SetPath=/eureka/{segment}
+        - id: eureka-server
+          uri: http://127.0.0.1:8761
+          predicates:
+            - Path=/eureka/api/{segment}
+          filters:
+            - SetPath=/eureka/{segment}
