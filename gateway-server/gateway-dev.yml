@@ -44,8 +44,8 @@ spring:
         registration:
           web:
             provider: web
-            client-id: kangchi
-            client-secret: 12345
+            client-id: web
+            client-secret: qwerqwer
             authorization-grant-type:
               - authorization_code
             scope: openid, profile, email
