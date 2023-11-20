@@ -1,0 +1,15 @@
+
+management.endpoint.health.show-details: "ALWAYS"
+management.endpoints.web.exposure.include: "*"
+
+logging:
+  level:
+    org:
+      springframework:
+        cloud:
+          config:
+            server: DEBUG
+    root: info
+
+server:
+  port: 8888
