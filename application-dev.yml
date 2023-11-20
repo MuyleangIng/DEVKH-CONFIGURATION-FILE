@@ -1,13 +1,4 @@
-spring:
-  cloud:
-    config:
-      server:
-        git:
-          uri: https://github.com/Developers-Cambodia/DEVKH-CONFIGURATION-FILE.git
-          search-paths:
-            - 'service-config/*service'
-          username: LHai-dev
-          password: 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
+
 management.endpoint.health.show-details: "ALWAYS"
 management.endpoints.web.exposure.include: "*"
 
@@ -21,4 +12,4 @@ logging:
     root: info
 
 server:
-  port: 8080
+  port: 8888
