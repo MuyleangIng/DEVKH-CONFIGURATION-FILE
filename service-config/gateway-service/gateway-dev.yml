@@ -18,7 +18,7 @@ spring:
             - TokenRelay=
 
         - id: nextjs
-          uri: http://127.0.0.1:3000/auth1
+          uri: http://127.0.0.1:3000
           predicates:
             - Path=/**
 
@@ -58,12 +58,11 @@ management:
 
 server:
   port: 9090
-
+  
 eureka:
   client:
     service-url:
-      defaultZone: ${EUREKA_SERVER_ADDRESS}
-
+      defaultZone: http://localhost:8761/eureka/
 # management:
 #   tracing:
 #     sampling:
