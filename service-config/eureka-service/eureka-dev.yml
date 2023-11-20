@@ -8,7 +8,7 @@ eureka:
     fetchRegistry: true
     serviceUrl:
       #defaultZone: ${EUREKA_SERVER_ADDRESS:http://${eureka.instance.hostname}:${PORT}/eureka/} #http://${eureka.instance.hostname}:${PORT}/eureka/
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://128.199.204.23:8761/eureka/
   server:
     waitTimeInMsWhenSyncEmpty: 0
     response-cache-update-interval-ms: 5000
