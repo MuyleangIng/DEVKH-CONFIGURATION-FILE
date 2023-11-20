@@ -23,7 +23,7 @@ spring:
             - Path=/**
 
         - id: eureka-server
-          uri: http://127.0.0.1:8761
+          uri: http://128.199.204.23:8761
           predicates:
             - Path=/eureka/api/{segment}
           filters:
@@ -62,7 +62,7 @@ server:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://128.199.204.23:8761/eureka/
 # management:
 #   tracing:
 #     sampling:
