@@ -62,12 +62,7 @@ server:
 eureka:
   client:
     service-url:
-<<<<<<< HEAD
       defaultZone: http://localhost:8761/eureka/
-=======
-      defaultZone:  http://localhost:8761/eureka/
-
->>>>>>> cec5b922ad045a136a0e39957aba93e31ff6b6af
 # management:
 #   tracing:
 #     sampling:
