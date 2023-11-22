@@ -14,7 +14,7 @@ spring:
             - Path=/api/v1/**
 
         - id: student-service
-          uri: http://139.59.252.233:8082
+          uri: http://127.0.0.1:8082
           predicates:
             - Path=/students/**
           filters:
