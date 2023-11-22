@@ -1,1 +1,27 @@
-;,;
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://159.89.205.202:5439/media_service
+    username: postgres
+    password: admin1234
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  servlet:
+    multipart:
+      max-file-size: 1000MB
+      max-request-size: 1000MB
+
+minio:
+  endpoint: http://159.89.205.202:9000
+  accessKey: mHD5j8QPNaJesowi95Vb
+  secretKey: OQWcVfT4rAsOKf5A4Zh1ygCLWVN9x0yrOelXOh6T
+
+server:
+  port: 8095
