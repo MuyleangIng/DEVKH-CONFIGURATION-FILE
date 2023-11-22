@@ -65,7 +65,7 @@ server:
 eureka:
   client:
     service-url:
-      defaultZone: http://128.199.204.23:8761/
+      defaultZone: http://128.199.204.23:8761/eureka/
 # management:
 #   tracing:
 #     sampling:
