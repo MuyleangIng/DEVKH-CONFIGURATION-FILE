@@ -36,7 +36,7 @@ spring:
       client:
         provider:
           web:
-            issuer-uri: http://127.0.0.1:8080
+            issuer-uri: http://139.59.252.233:8080
         registration:
           web:
             provider: web
@@ -45,7 +45,7 @@ spring:
             authorization-grant-type:
               - authorization_code
             scope: openid, profile, email
-            redirect-uri: http://127.0.0.1:9090/login/oauth2/code/web
+            redirect-uri: http://139.59.252.233:9090/login/oauth2/code/web
 
 logging:
   level:
