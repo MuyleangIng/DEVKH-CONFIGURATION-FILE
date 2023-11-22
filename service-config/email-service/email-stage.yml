@@ -1,0 +1,20 @@
+spring:
+  # Mail
+  mail:
+    username: developerbeginner168@gmail.com
+    password: xsgicacuexzrbdow
+    host: smtp.gmail.com
+    port: 587
+    protocol: smtp
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+eureka:
+  client:
+    service-url:
+      #      defaultZone: ${EUREKA_SERVER_ADDRESS}
+      defaultZone: http://128.199.204.23:8761/eureka/
