@@ -1,2 +1,9 @@
-
+spring:
+  data:
+    mongodb:
+      uri: mongodb://139.59.252.233:27017/
+      username: admin
+      password: hai172212
+server:
+  port: 8086
 
