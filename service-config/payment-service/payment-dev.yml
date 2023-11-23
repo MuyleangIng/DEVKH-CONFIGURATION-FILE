@@ -1,6 +1,4 @@
 spring:
-  application:
-    name: DEVKH-PAYMENT-SERVICE
   datasource:
     url: jdbc:postgresql://localhost:5432/payment-service
     username: postgres
