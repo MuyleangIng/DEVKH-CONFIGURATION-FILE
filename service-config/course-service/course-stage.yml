@@ -2,7 +2,6 @@ spring:
   data:
     mongodb:
       uri: mongodb://139.59.252.233:27017/
-      database: admin  # Specify your MongoDB database name
       username: admin
       password: hai172212  # Use environment variable for password
 
