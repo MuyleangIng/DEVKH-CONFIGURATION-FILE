@@ -1,7 +1,7 @@
 spring:
   data:
     mongodb:
-      uri: mongodb://139.59.252.233:27017/
+      uri: mongodb://139.59.252.233:27017/admin
       username: admin
       password: hai172212  # Use environment variable for password
 
@@ -13,3 +13,4 @@ eureka:
     service-url:
       #      defaultZone: ${EUREKA_SERVER_ADDRESS}
       defaultZone: http://128.199.204.23:8761/eureka/
+
